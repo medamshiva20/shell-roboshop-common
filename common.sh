@@ -50,6 +50,8 @@ java_setup(){
     dnf install maven -y &>>$LOGS_FILE
     VALIDATE $? "Installing Maven"
 
+    mkdir -p /app
+
     cd /app 
     mvn clean package &>>$LOGS_FILE
     VALIDATE $? "Installing and Building $app_name"
