@@ -4,7 +4,7 @@
     LOGS_FOLDER="/var/log/shell-roboshop"
     LOGS_FILE="$LOGS_FOLDER/$0.log"
     MONGODB_HOST=mongodb.sivadevops.site
-    MYSQL_HOST=mysql.sivadevops.site
+    #YSQL_HOST=mysql.sivadevops.site
 
     SCRIPT_DIR=$PWD
     R="\e[31m"
