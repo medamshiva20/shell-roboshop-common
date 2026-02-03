@@ -14,9 +14,9 @@ VALIDATE $? "Installing MySQL"
 mysql -h 10.1.1.243 -pRoboShop@1 -e 'use cities'
 if [ $? -ne 0 ]; then
 
-mysql -h 10.1.1.24 -uroot -pRoboShop@1 < /app/db/schema.sql &>>$LOGS_FILE
-mysql -h 10.1.1.24 -uroot -pRoboShop@1 < /app/db/app-user.sql &>>$LOGS_FILE
-mysql -h 10.1.1.24 -uroot -pRoboShop@1 < /app/db/master-data.sql &>>$LOGS_FILE
+mysql -h 10.1.1.243 -uroot -pRoboShop@1 < /app/db/schema.sql &>>$LOGS_FILE
+mysql -h 10.1.1.243 -uroot -pRoboShop@1 < /app/db/app-user.sql &>>$LOGS_FILE
+mysql -h 10.1.1.243 -uroot -pRoboShop@1 < /app/db/master-data.sql &>>$LOGS_FILE
 
     VALIDATE $? "Loaded data into MySQL"
 else
