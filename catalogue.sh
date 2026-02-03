@@ -1,0 +1,18 @@
+#!/bin/bash 
+
+source ./common.sh
+app_name=catalogue
+
+check_root
+nodejs_setup
+app_setup
+systemd_setup
+
+INDEX=$(mongosh --host $MONGODB_HOST --quiet  --eval 'db.getMongo().getDBNames().indexOf("catalogue")')
+
+if [ $INDEX -le 0 ]; then
+    mongosh --host $MONGODB_HOST </app/db/master-data.js
+    VALIDATE $? "Loading products"
+else
+    echo -e "Products already loaded ... $Y SKIPPING $N"
+fi
