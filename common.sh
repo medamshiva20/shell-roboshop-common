@@ -64,7 +64,7 @@ app_setup(){
         VALIDATE $? "Removing existing code"
 
         unzip /tmp/$app_name.zip &>>$LOGS_FILE
-        VALIDATE $? "Uzip $app_name code
+        VALIDATE $? "Uzip $app_name code"
 }
 systemd_setup(){
     npm install  &>>$LOGS_FILE
