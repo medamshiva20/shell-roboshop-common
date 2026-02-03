@@ -42,6 +42,17 @@ nodejs_setup(){
 
     dnf install nodejs -y &>>$LOGS_FILE
     VALIDATE $? "Install NodeJS"
+
+java_setup(){
+    dnf install maven -y &>>$LOGS_FILE
+    cd /app 
+    mvn clean package &>>$LOGS_FILE
+    VALIDATE $? "Installing and Building shipping"
+
+    mv target/shipping-1.0.jar shipping.jar 
+    VALIDATE $? "Moving and Renaming shipping"
+}
+
 }
 app_setup(){
         id roboshop &>>$LOGS_FILE
