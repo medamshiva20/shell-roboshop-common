@@ -12,7 +12,7 @@ N="\e[0m"
 
 mkdir -p $LOGS_DIR
 
-echo  "$(date "%Y-%m-%d %H:%M:%S) | Script started executed at:$(date) | tee -a $LOG_FILE
+echo  "$(date "%Y-%m-%d %H:%M:%S) | Script started executed at:$(date)" | tee -a $LOG_FILE
 
 check_root(){
 if [ $USERID -ne 0 ] ;
@@ -34,5 +34,5 @@ VALIDATE(){
     print_total_time(){
         END_TIME=$(date +%s)
         TOTAL_TIME=$(( $ENDTIME - $START_TIME ))
-        echo -e "$(date +%Y-%m-%d %H:%M:%S) | Script executed in : $G $TOTAL_TIME $N | tee -a $LOG_FILE
+        echo -e "$(date +%Y-%m-%d %H:%M:%S) | Script executed in : $G $TOTAL_TIME $N " | tee -a $LOG_FILE
     }
