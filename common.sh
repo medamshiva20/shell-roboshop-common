@@ -42,8 +42,6 @@ nodejs_setup(){
     dnf install nodejs -y &>>$LOGS_FILE
     VALIDATE $? "Install NodeJS"
 
-    npm install  &>>$LOGS_FILE
-    VALIDATE $? "Installing dependencies"
 }
 
 java_setup(){
@@ -92,6 +90,9 @@ app_setup(){
 
     unzip /tmp/$app_name.zip &>>$LOGS_FILE
     VALIDATE $? "Uzip $app_name code"
+
+     npm install  &>>$LOGS_FILE
+    VALIDATE $? "Installing dependencies"
 }
 
 systemd_setup(){
