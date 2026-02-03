@@ -4,7 +4,6 @@ source ./common.sh
 app_name=shipping
 
 check_root
-nodejs_setup
 java_setup
 app_setup
 systemd_setup
