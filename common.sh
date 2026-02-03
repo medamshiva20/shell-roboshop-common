@@ -42,8 +42,9 @@ nodejs_setup(){
 
     dnf install nodejs -y &>>$LOGS_FILE
     VALIDATE $? "Install NodeJS"
+}
 
-java_setup(){
+java_setup() {
         dnf install maven -y &>>$LOGS_FILE
         VALIDATE $? "Installing Maven"
 
@@ -55,7 +56,7 @@ java_setup(){
         VALIDATE $? "Moving and Renaming $app_name"
 }
 
-}
+
 app_setup(){
         id roboshop &>>$LOGS_FILE
     if [ $? -ne 0 ]; then
