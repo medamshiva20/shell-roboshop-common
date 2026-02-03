@@ -50,14 +50,9 @@ java_setup(){
     dnf install maven -y &>>$LOGS_FILE
     VALIDATE $? "Installing Maven"
 
-    mkdir -p /app
+    
 
-    cd /app 
-    mvn clean package &>>$LOGS_FILE
-    VALIDATE $? "Installing and Building $app_name"
-
-    mv target/$app_name-1.0.jar $app_name.jar 
-    VALIDATE $? "Moving and Renaming $app_name"
+   
 }
 
 python_setup(){
@@ -94,6 +89,13 @@ app_setup(){
 
     unzip /tmp/$app_name.zip &>>$LOGS_FILE
     VALIDATE $? "Uzip $app_name code"
+
+     cd /app 
+    mvn clean package &>>$LOGS_FILE
+    VALIDATE $? "Installing and Building $app_name"
+
+    mv target/$app_name-1.0.jar $app_name.jar 
+    VALIDATE $? "Moving and Renaming $app_name"
 
   
 }
