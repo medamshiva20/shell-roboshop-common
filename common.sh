@@ -45,13 +45,16 @@ nodejs_setup(){
 
 java_setup(){
     dnf install maven -y &>>$LOGS_FILE
+    VALIDATE $? "Installing Maven"
+
     cd /app 
     mvn clean package &>>$LOGS_FILE
-    VALIDATE $? "Installing and Building shipping"
+    VALIDATE $? "Installing and Building $app_name"
 
-    mv target/shipping-1.0.jar shipping.jar 
-    VALIDATE $? "Moving and Renaming shipping"
+    mv target/$app_name-1.0.jar $app_name.jar 
+    VALIDATE $? "Moving and Renaming $app_name"
 }
+
 
 }
 app_setup(){
