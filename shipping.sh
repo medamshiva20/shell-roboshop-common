@@ -1,15 +1,12 @@
-#!/bin/bash 
+#!/bin/bash
 
 source ./common.sh
 app_name=shipping
 
 check_root
-java_setup
 app_setup
+java_setup
 systemd_setup
-
-print_total_time
-
 
 dnf install mysql -y  &>>$LOGS_FILE
 VALIDATE $? "Installing MySQL"
@@ -24,3 +21,6 @@ if [ $? -ne 0 ]; then
 else
     echo -e "data is already loaded ... $Y SKIPPING $N"
 fi
+
+app_restart
+print_total_time
