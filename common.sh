@@ -42,6 +42,9 @@ nodejs_setup(){
 
     dnf install nodejs -y &>>$LOGS_FILE
     VALIDATE $? "Install NodeJS"
+
+     npm install  &>>$LOGS_FILE
+    VALIDATE $? "Installing dependencies"
 }
 
 java_setup() {
@@ -82,8 +85,7 @@ app_setup(){
         VALIDATE $? "Uzip $app_name code"
 }
 systemd_setup(){
-    npm install  &>>$LOGS_FILE
-    VALIDATE $? "Installing dependencies"
+
 
     cp $SCRIPT_DIR/$app_name.service /etc/systemd/system/$app_name.service
     VALIDATE $? "Created systemctl service"
