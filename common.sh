@@ -79,7 +79,9 @@ app_setup(){
         echo -e "Roboshop user already exist ... $Y SKIPPING $N"
     fi
 
-    # downloading the app
+    rm -rf /app
+    VALIDATE $? "Removing app directory"
+
     mkdir -p /app 
     VALIDATE $? "Creating app directory"
 
@@ -94,6 +96,9 @@ app_setup(){
 
     unzip /tmp/$app_name.zip &>>$LOGS_FILE
     VALIDATE $? "Uzip $app_name code"
+
+    npm install 
+    VALIDATE $? "Installing dependencies"
 
     cd /app 
     pip3 install -r requirements.txt &>>$LOGS_FILE
